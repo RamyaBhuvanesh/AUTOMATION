@@ -1,0 +1,27 @@
+
+from selenium import webdriver
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+class BrowesrInteractions():
+    def test(self):
+        driver = webdriver.Edge()
+        url1 = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+        xpath_of_username = "//input[@name='username']"
+        xpath_of_password = "//input[@name='password']"
+        xpath_of_button = '//input[@aria-lable="Google Search"]'
+        driver.get(url1)
+        driver.maximize_window()
+        time.sleep(10)
+        search_box = driver.find_element(By.XPATH, xpath_of_username)
+        search_box.send_keys("Admin")
+        search_box = driver.find_element(By.XPATH, xpath_of_password)
+        search_box.send_keys("admin123")
+        click_elements = driver.find_element(By.XPATH, xpath_of_button)
+        click_elements.send_keys(Keys.click)
+        time.sleep(10)
+        driver.quit()
+gc = BrowesrInteractions()
+gc.test()
+
+
